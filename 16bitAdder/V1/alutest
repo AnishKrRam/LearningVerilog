@@ -1,0 +1,109 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x55c092fa6490 .scope module, "alutest" "alutest" 2 1;
+ .timescale 0 0;
+v0x55c092ffcd20_0 .net "CY", 0 0, L_0x55c092ffd330;  1 drivers
+v0x55c092ffcde0_0 .net "P", 0 0, L_0x55c092ffdbe0;  1 drivers
+v0x55c092ffce80_0 .net "S", 0 0, L_0x55c092ffd9c0;  1 drivers
+v0x55c092ffcf50_0 .net "V", 0 0, L_0x55c092ffe760;  1 drivers
+v0x55c092ffd020_0 .var "X", 15 0;
+v0x55c092ffd0c0_0 .var "Y", 15 0;
+v0x55c092ffd190_0 .net "Z", 15 0, L_0x55c092ffd420;  1 drivers
+v0x55c092ffd260_0 .net "ZR", 0 0, L_0x55c092ffdaf0;  1 drivers
+S_0x55c092fa6620 .scope module, "DUT" "ALU" 2 6, 3 1 0, S_0x55c092fa6490;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "X";
+    .port_info 1 /INPUT 16 "Y";
+    .port_info 2 /OUTPUT 16 "Z";
+    .port_info 3 /OUTPUT 1 "Sign";
+    .port_info 4 /OUTPUT 1 "Zero";
+    .port_info 5 /OUTPUT 1 "Carry";
+    .port_info 6 /OUTPUT 1 "Parity";
+    .port_info 7 /OUTPUT 1 "Overflow";
+L_0x55c092ffd8b0 .functor AND 1, L_0x55c092ffdcd0, L_0x55c092ffdd70, C4<1>, C4<1>;
+L_0x55c092ffdf60 .functor NOT 1, L_0x55c092ffdec0, C4<0>, C4<0>, C4<0>;
+L_0x55c092ffe020 .functor AND 1, L_0x55c092ffd8b0, L_0x55c092ffdf60, C4<1>, C4<1>;
+L_0x55c092ffe240 .functor NOT 1, L_0x55c092ffe130, C4<0>, C4<0>, C4<0>;
+L_0x55c092ffe3e0 .functor NOT 1, L_0x55c092ffe2b0, C4<0>, C4<0>, C4<0>;
+L_0x55c092ffe450 .functor AND 1, L_0x55c092ffe240, L_0x55c092ffe3e0, C4<1>, C4<1>;
+L_0x55c092ffe1d0 .functor AND 1, L_0x55c092ffe450, L_0x55c092ffe5a0, C4<1>, C4<1>;
+L_0x55c092ffe760 .functor OR 1, L_0x55c092ffe020, L_0x55c092ffe1d0, C4<0>, C4<0>;
+v0x55c092fe1c70_0 .net "Carry", 0 0, L_0x55c092ffd330;  alias, 1 drivers
+v0x55c092ffb690_0 .net "Overflow", 0 0, L_0x55c092ffe760;  alias, 1 drivers
+v0x55c092ffb750_0 .net "Parity", 0 0, L_0x55c092ffdbe0;  alias, 1 drivers
+v0x55c092ffb7f0_0 .net "Sign", 0 0, L_0x55c092ffd9c0;  alias, 1 drivers
+v0x55c092ffb8b0_0 .net "X", 15 0, v0x55c092ffd020_0;  1 drivers
+v0x55c092ffb9e0_0 .net "Y", 15 0, v0x55c092ffd0c0_0;  1 drivers
+v0x55c092ffbac0_0 .net "Z", 15 0, L_0x55c092ffd420;  alias, 1 drivers
+v0x55c092ffbba0_0 .net "Zero", 0 0, L_0x55c092ffdaf0;  alias, 1 drivers
+L_0x710bc41b7060 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55c092ffbc60_0 .net *"_ivl_10", 0 0, L_0x710bc41b7060;  1 drivers
+v0x55c092ffbd40_0 .net *"_ivl_11", 16 0, L_0x55c092ffd810;  1 drivers
+v0x55c092ffbe20_0 .net *"_ivl_20", 0 0, L_0x55c092ffdcd0;  1 drivers
+v0x55c092ffbf00_0 .net *"_ivl_22", 0 0, L_0x55c092ffdd70;  1 drivers
+v0x55c092ffbfe0_0 .net *"_ivl_23", 0 0, L_0x55c092ffd8b0;  1 drivers
+v0x55c092ffc0c0_0 .net *"_ivl_26", 0 0, L_0x55c092ffdec0;  1 drivers
+v0x55c092ffc1a0_0 .net *"_ivl_27", 0 0, L_0x55c092ffdf60;  1 drivers
+v0x55c092ffc280_0 .net *"_ivl_29", 0 0, L_0x55c092ffe020;  1 drivers
+v0x55c092ffc360_0 .net *"_ivl_3", 16 0, L_0x55c092ffd560;  1 drivers
+v0x55c092ffc440_0 .net *"_ivl_32", 0 0, L_0x55c092ffe130;  1 drivers
+v0x55c092ffc520_0 .net *"_ivl_33", 0 0, L_0x55c092ffe240;  1 drivers
+v0x55c092ffc600_0 .net *"_ivl_36", 0 0, L_0x55c092ffe2b0;  1 drivers
+v0x55c092ffc6e0_0 .net *"_ivl_37", 0 0, L_0x55c092ffe3e0;  1 drivers
+v0x55c092ffc7c0_0 .net *"_ivl_39", 0 0, L_0x55c092ffe450;  1 drivers
+v0x55c092ffc8a0_0 .net *"_ivl_42", 0 0, L_0x55c092ffe5a0;  1 drivers
+v0x55c092ffc980_0 .net *"_ivl_43", 0 0, L_0x55c092ffe1d0;  1 drivers
+L_0x710bc41b7018 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x55c092ffca60_0 .net *"_ivl_6", 0 0, L_0x710bc41b7018;  1 drivers
+v0x55c092ffcb40_0 .net *"_ivl_7", 16 0, L_0x55c092ffd6a0;  1 drivers
+L_0x55c092ffd330 .part L_0x55c092ffd810, 16, 1;
+L_0x55c092ffd420 .part L_0x55c092ffd810, 0, 16;
+L_0x55c092ffd560 .concat [ 16 1 0 0], v0x55c092ffd020_0, L_0x710bc41b7018;
+L_0x55c092ffd6a0 .concat [ 16 1 0 0], v0x55c092ffd0c0_0, L_0x710bc41b7060;
+L_0x55c092ffd810 .arith/sum 17, L_0x55c092ffd560, L_0x55c092ffd6a0;
+L_0x55c092ffd9c0 .part L_0x55c092ffd420, 15, 1;
+L_0x55c092ffdaf0 .reduce/nor L_0x55c092ffd420;
+L_0x55c092ffdbe0 .reduce/xnor L_0x55c092ffd420;
+L_0x55c092ffdcd0 .part v0x55c092ffd020_0, 15, 1;
+L_0x55c092ffdd70 .part v0x55c092ffd0c0_0, 15, 1;
+L_0x55c092ffdec0 .part L_0x55c092ffd420, 15, 1;
+L_0x55c092ffe130 .part v0x55c092ffd020_0, 15, 1;
+L_0x55c092ffe2b0 .part v0x55c092ffd0c0_0, 15, 1;
+L_0x55c092ffe5a0 .part L_0x55c092ffd420, 15, 1;
+    .scope S_0x55c092fa6490;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "ALUTest.vcd" {0 0 0};
+    %vpi_call 2 9 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x55c092fa6490 {0 0 0};
+    %vpi_call 2 10 "$monitor", $time, "X = %h, Y = %h, Z = %h, S = %b, ZR = %b, CY = %b, P = %b, V = %b", v0x55c092ffd020_0, v0x55c092ffd0c0_0, v0x55c092ffd190_0, v0x55c092ffce80_0, v0x55c092ffd260_0, v0x55c092ffcd20_0, v0x55c092ffcde0_0, v0x55c092ffcf50_0 {0 0 0};
+    %delay 5, 0;
+    %pushi/vec4 36863, 0, 16;
+    %store/vec4 v0x55c092ffd020_0, 0, 16;
+    %pushi/vec4 32768, 0, 16;
+    %store/vec4 v0x55c092ffd0c0_0, 0, 16;
+    %delay 5, 0;
+    %pushi/vec4 65534, 0, 16;
+    %store/vec4 v0x55c092ffd020_0, 0, 16;
+    %pushi/vec4 2, 0, 16;
+    %store/vec4 v0x55c092ffd0c0_0, 0, 16;
+    %delay 5, 0;
+    %pushi/vec4 43690, 0, 16;
+    %store/vec4 v0x55c092ffd020_0, 0, 16;
+    %pushi/vec4 21845, 0, 16;
+    %store/vec4 v0x55c092ffd0c0_0, 0, 16;
+    %delay 5, 0;
+    %vpi_call 2 14 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "alutest.v";
+    "ALU.v";
