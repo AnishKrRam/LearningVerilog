@@ -1,0 +1,67 @@
+$date
+	Fri Jul  3 15:25:13 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module testbench $end
+$var wire 4 ! Ye [3:0] $end
+$var wire 4 " Yd [3:0] $end
+$var wire 7 # Yc [6:0] $end
+$var wire 1 $ Yb $end
+$var wire 4 % Ya [3:0] $end
+$var reg 4 & A [3:0] $end
+$var reg 4 ' B [3:0] $end
+$var reg 3 ( C [2:0] $end
+$scope module DUT $end
+$var wire 4 ) A [3:0] $end
+$var wire 4 * B [3:0] $end
+$var wire 3 + C [2:0] $end
+$var wire 4 , Ya [3:0] $end
+$var wire 4 - Ye [3:0] $end
+$var wire 4 . Yd [3:0] $end
+$var wire 7 / Yc [6:0] $end
+$var wire 1 $ Yb $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 /
+b0 .
+b0 -
+b0 ,
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+b0 &
+b0 %
+0$
+b0 #
+b0 "
+b0 !
+$end
+#10000
+b1000 %
+b1000 ,
+b11 "
+b11 .
+b1010 !
+b1010 -
+b101 (
+b101 +
+b1010 '
+b1010 *
+b1100101 #
+b1100101 /
+b1100 &
+b1100 )
+#20000

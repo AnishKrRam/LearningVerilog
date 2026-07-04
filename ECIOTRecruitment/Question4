@@ -1,0 +1,81 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x5f7a540ec560 .scope module, "testbench" "testbench" 2 18;
+ .timescale -9 -12;
+v0x5f7a541042b0_0 .var "A", 3 0;
+v0x5f7a54104390_0 .var "B", 3 0;
+v0x5f7a54104430_0 .var "C", 2 0;
+v0x5f7a541044d0_0 .net "Ya", 3 0, L_0x5f7a541048b0;  1 drivers
+v0x5f7a541045a0_0 .net "Yb", 0 0, L_0x5f7a54104a10;  1 drivers
+v0x5f7a54104640_0 .net "Yc", 6 0, L_0x5f7a54104b00;  1 drivers
+v0x5f7a54104710_0 .net "Yd", 3 0, L_0x5f7a54104d00;  1 drivers
+v0x5f7a541047e0_0 .net "Ye", 3 0, L_0x5f7a54105090;  1 drivers
+S_0x5f7a540ec6f0 .scope module, "DUT" "math_mod" 2 26, 2 1 0, S_0x5f7a540ec560;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "A";
+    .port_info 1 /INPUT 4 "B";
+    .port_info 2 /INPUT 3 "C";
+    .port_info 3 /OUTPUT 4 "Ya";
+    .port_info 4 /OUTPUT 1 "Yb";
+    .port_info 5 /OUTPUT 7 "Yc";
+    .port_info 6 /OUTPUT 4 "Yd";
+    .port_info 7 /OUTPUT 4 "Ye";
+L_0x5f7a541048b0 .functor AND 4, v0x5f7a541042b0_0, v0x5f7a54104390_0, C4<1111>, C4<1111>;
+v0x5f7a540dd8d0_0 .net "A", 3 0, v0x5f7a541042b0_0;  1 drivers
+v0x5f7a54103660_0 .net "B", 3 0, v0x5f7a54104390_0;  1 drivers
+v0x5f7a54103740_0 .net "C", 2 0, v0x5f7a54104430_0;  1 drivers
+v0x5f7a54103800_0 .net "Ya", 3 0, L_0x5f7a541048b0;  alias, 1 drivers
+v0x5f7a541038e0_0 .net "Yb", 0 0, L_0x5f7a54104a10;  alias, 1 drivers
+v0x5f7a541039f0_0 .net "Yc", 6 0, L_0x5f7a54104b00;  alias, 1 drivers
+v0x5f7a54103ad0_0 .net "Yd", 3 0, L_0x5f7a54104d00;  alias, 1 drivers
+v0x5f7a54103bb0_0 .net "Ye", 3 0, L_0x5f7a54105090;  alias, 1 drivers
+L_0x74bd525b7018 .functor BUFT 1, C4<00>, C4<0>, C4<0>, C4<0>;
+v0x5f7a54103c90_0 .net *"_ivl_10", 1 0, L_0x74bd525b7018;  1 drivers
+L_0x74bd525b7060 .functor BUFT 1, C4<0000>, C4<0>, C4<0>, C4<0>;
+v0x5f7a54103d70_0 .net/2u *"_ivl_12", 3 0, L_0x74bd525b7060;  1 drivers
+v0x5f7a54103e50_0 .net *"_ivl_14", 0 0, L_0x5f7a54104e70;  1 drivers
+v0x5f7a54103f10_0 .net *"_ivl_16", 3 0, L_0x5f7a54104f60;  1 drivers
+L_0x74bd525b70a8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x5f7a54103ff0_0 .net *"_ivl_19", 0 0, L_0x74bd525b70a8;  1 drivers
+v0x5f7a541040d0_0 .net *"_ivl_8", 1 0, L_0x5f7a54104c60;  1 drivers
+L_0x5f7a54104a10 .reduce/and v0x5f7a541042b0_0;
+L_0x5f7a54104b00 .concat [ 3 4 0 0], v0x5f7a54104430_0, v0x5f7a541042b0_0;
+L_0x5f7a54104c60 .part v0x5f7a541042b0_0, 2, 2;
+L_0x5f7a54104d00 .concat [ 2 2 0 0], L_0x5f7a54104c60, L_0x74bd525b7018;
+L_0x5f7a54104e70 .cmp/ne 4, v0x5f7a541042b0_0, L_0x74bd525b7060;
+L_0x5f7a54104f60 .concat [ 3 1 0 0], v0x5f7a54104430_0, L_0x74bd525b70a8;
+L_0x5f7a54105090 .functor MUXZ 4, L_0x5f7a54104f60, v0x5f7a54104390_0, L_0x5f7a54104e70, C4<>;
+    .scope S_0x5f7a540ec560;
+T_0 ;
+    %vpi_call 2 29 "$monitor", "t=%0t A=%b B=%b C=%b | Ya=%b Yb=%b Yc=%b Yd=%b Ye=%b", $time, v0x5f7a541042b0_0, v0x5f7a54104390_0, v0x5f7a54104430_0, v0x5f7a541044d0_0, v0x5f7a541045a0_0, v0x5f7a54104640_0, v0x5f7a54104710_0, v0x5f7a541047e0_0 {0 0 0};
+    %vpi_call 2 31 "$dumpfile", "Question4_test.vcd" {0 0 0};
+    %vpi_call 2 32 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5f7a540ec560 {0 0 0};
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x5f7a541042b0_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x5f7a54104390_0, 0, 4;
+    %pushi/vec4 0, 0, 3;
+    %store/vec4 v0x5f7a54104430_0, 0, 3;
+    %delay 10000, 0;
+    %pushi/vec4 12, 0, 4;
+    %store/vec4 v0x5f7a541042b0_0, 0, 4;
+    %pushi/vec4 10, 0, 4;
+    %store/vec4 v0x5f7a54104390_0, 0, 4;
+    %pushi/vec4 5, 0, 3;
+    %store/vec4 v0x5f7a54104430_0, 0, 3;
+    %delay 10000, 0;
+    %vpi_call 2 42 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "Question4.v";

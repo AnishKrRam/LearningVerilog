@@ -1,0 +1,30 @@
+Behavioral vs Structural Modelling
+
+Behavioral
+
+Describes the working of a system, without discussing its construction
+arithmetic expression or truth tables used, gates used and thir nets not mentioned
+
+It is the starting point, it is easier to write in Verilog
+
+
+Structural
+
+Dicusses Hardware implementation
+Discusses gates and their interconnections
+
+
+Behavorial Models are converted into Structrural description of system
+
+
+
+
+In a Multiplexer,
+Number of select lines is log_2(input lines)
+
+To make 16-to-1 Multiplexer
+    Use pure Behavorial
+    Structural model using 4-to-1 multiplexer specufied using Behavorial
+    repeat for 2 to 1 multiplexer
+    gate level model 2-to-1 multiplexer
+    
