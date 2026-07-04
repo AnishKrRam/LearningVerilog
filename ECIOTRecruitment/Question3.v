@@ -1,12 +1,13 @@
 // Y = A.B + B.C + A.C
 
 // 1) BEHAVIORAL LEVEL
-
 module maj3_behavioral(
     input  A, B, C,
     output reg Y
 );
+
     always @(*) begin
+
         case ({A, B, C})
             3'b000: Y = 1'b0;
             3'b001: Y = 1'b0;
@@ -18,45 +19,42 @@ module maj3_behavioral(
             3'b111: Y = 1'b1;
             default: Y = 1'bx;
         endcase
+
     end
+
 endmodule
 
-
-
 // 2) DATAFLOW LEVEL
-
 module maj3_dataflow(
     input  A, B, C,
     output Y
 );
+
     assign Y = (A & B) | (B & C) | (A & C);
+
 endmodule
 
-
-
 // 3) GATE LEVEL
-
 module maj3_gate(
     input  A, B, C,
     output Y
 );
+
     wire w1, w2, w3;
 
     and and1 (w1, A, B);
     and and2 (w2, B, C);
     and and3 (w3, A, C);
     or  or1  (Y, w1, w2, w3);
+
 endmodule
 
-
-
 // 4) SWITCH LEVEL (built from nmos/pmos primitives)
-
-
 module maj3_switch(
     input  A, B, C,
     output Y
 );
+
     supply1 vdd;
     supply0 gnd;
     wire [0:2] PUN;
@@ -89,15 +87,17 @@ endmodule
 // Testbench - exercises all four implementations together
 
 module tb_maj3;
+
     reg A, B, C;
     wire Y_beh, Y_flow, Y_gate, Y_sw;
 
-    maj3_behavioral u1(.A(A), .B(B), .C(C), .Y(Y_beh));
-    maj3_dataflow   u2(.A(A), .B(B), .C(C), .Y(Y_flow));
-    maj3_gate       u3(.A(A), .B(B), .C(C), .Y(Y_gate));
-    maj3_switch     u4(.A(A), .B(B), .C(C), .Y(Y_sw));
+    maj3_behavioral DUT1(.A(A), .B(B), .C(C), .Y(Y_beh));
+    maj3_dataflow   DUT2(.A(A), .B(B), .C(C), .Y(Y_flow));
+    maj3_gate       DUT3(.A(A), .B(B), .C(C), .Y(Y_gate));
+    maj3_switch     DUT4(.A(A), .B(B), .C(C), .Y(Y_sw));
 
     initial begin
+
         $monitor("t=%0t A=%b B=%b C=%b | beh=%b flow=%b gate=%b sw=%b",
                   $time, A, B, C, Y_beh, Y_flow, Y_gate, Y_sw);
         $dumpfile("Question3_test.vcd");
@@ -113,4 +113,5 @@ module tb_maj3;
         A=1; B=1; C=1; #10;
         $finish;
     end
+    
 endmodule

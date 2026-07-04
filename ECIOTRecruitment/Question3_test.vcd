@@ -1,5 +1,5 @@
 $date
-	Sat Jul  4 12:09:29 2026
+	Sat Jul  4 12:51:21 2026
 $end
 $version
 	Icarus Verilog
@@ -15,19 +15,19 @@ $var wire 1 $ Y_beh $end
 $var reg 1 % A $end
 $var reg 1 & B $end
 $var reg 1 ' C $end
-$scope module u1 $end
+$scope module DUT1 $end
 $var wire 1 % A $end
 $var wire 1 & B $end
 $var wire 1 ' C $end
 $var reg 1 $ Y $end
 $upscope $end
-$scope module u2 $end
+$scope module DUT2 $end
 $var wire 1 % A $end
 $var wire 1 & B $end
 $var wire 1 ' C $end
 $var wire 1 # Y $end
 $upscope $end
-$scope module u3 $end
+$scope module DUT3 $end
 $var wire 1 % A $end
 $var wire 1 & B $end
 $var wire 1 ' C $end
@@ -36,7 +36,7 @@ $var wire 1 ( w1 $end
 $var wire 1 ) w2 $end
 $var wire 1 * w3 $end
 $upscope $end
-$scope module u4 $end
+$scope module DUT4 $end
 $var wire 1 % A $end
 $var wire 1 & B $end
 $var wire 1 ' C $end
