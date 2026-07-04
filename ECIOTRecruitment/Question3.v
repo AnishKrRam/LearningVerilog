@@ -83,9 +83,7 @@ module maj3_switch(
 
 endmodule
 
-
-// Testbench - exercises all four implementations together
-
+// Testbench
 module tb_maj3;
 
     reg A, B, C;
@@ -113,5 +111,5 @@ module tb_maj3;
         A=1; B=1; C=1; #10;
         $finish;
     end
-    
+
 endmodule
