@@ -1,3 +1,4 @@
+// 4 to 1 multiplexer, Behavorial only
 module mux4to1 (in, sel, out);
 
     input [3:0] in;

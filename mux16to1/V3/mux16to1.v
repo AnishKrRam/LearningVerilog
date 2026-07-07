@@ -1,3 +1,4 @@
+// 16 to 1 multiplexer, instantiating 4 to 1 multiplexers
 module mux16to1 (in, sel, out);
     input [15:0] in;
     input [3:0] sel;
