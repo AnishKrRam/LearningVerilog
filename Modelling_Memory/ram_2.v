@@ -1,17 +1,17 @@
-// Single port RAM, Synchronous read / write
-module ram_1 (addr, data, clk, rd, wr, cs);
+// Single port RAM, Asynchronous read / write
+module ram_2 (addr, data, rd, wr, cs);
     input [9:0] addr;
-    input clk, rd, wr, cs;
+    input rd, wr, cs;
     inout [7:0] data;
     reg [7:0] mem [1023:0];
     reg [7:0] d_out;
 
     assign data = (cs && rd) ? d_out : 8'bz;
 
-    always @(posedge clk)
+    always @(addr or data or rd or wr or cs)
         if (cs && wr && !rd) mem[addr] = data;
 
-    always @(posedge clk)
+    always @(addr or rd or wr or cs)
         if (cs && rd && !wr) d_out = mem[addr];
 
 endmodule
