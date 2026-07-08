@@ -1,4 +1,4 @@
-module gcd_testbench();
+module GCD_test();
     reg [15:0] data_in;
     reg clk, start;
     wire done;

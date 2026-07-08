@@ -1,6 +1,6 @@
 `include "PIPO.v"
-`include "SUB.v"
 `include "MUX.v"
+`include "SUB.v"
 `include "COMPARE.v"
 
 module GCD_datapath (gt, lt, eq, 
