@@ -25,7 +25,7 @@ module controller (LdA, LdB, LdP, clrP, decB, done, clk, eqz, start);
         begin
             case (state)
                 S0:    begin #1 LdA = 0; LdB = 0; LdP = 0; clrP = 0; decB = 0; end
-                S1:    begin #1 LdA = 1; end
+                S1:    begin #1 LdA = 1; done = 0; end
                 S2:    begin #1 LdA = 0; LdB = 1; clrP = 1; end
                 S3:    begin #1 LdB = 0; LdP = 1; clrP = 0; decB = 1; end
                 S4:    begin #1 done = 1; LdB = 0; LdP = 0; decB = 0; end
