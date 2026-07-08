@@ -1,3 +1,5 @@
+// Controller module for multilplier
+// Modified : State S1 now initializes done = 0;
 module controller (LdA, LdB, LdP, clrP, decB, done, clk, eqz, start);
     input clk, eqz, start;
     output reg LdA, LdB, LdP, clrP, decB, done;
