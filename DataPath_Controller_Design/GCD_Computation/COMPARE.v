@@ -1,4 +1,5 @@
-module COMPARE(lt, gt, eq, data1, data2);
+module COMPARE (lt, gt, eq, data1, data2);
+
     input [15:0] data1, data2;
     output lt, gt, eq;
     
