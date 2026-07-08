@@ -1,4 +1,5 @@
 // Multiplier Datapath
+// Uses multiplication by repeated addition
 // Modified : Bus replaced with data_in in module declarations
 module MUL_datapath (eqz, LdA, LdB, LdP, clrP, decB, data_in, clk);
     input LdA, LdB, LdP, clrP, decB, clk;
