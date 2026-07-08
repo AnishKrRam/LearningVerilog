@@ -22,7 +22,7 @@ module GCD_test();
     end
     
     initial begin
-        $monitor ($time, "%d %b", DP.Bout, done);
+        $monitor ($time, "%d %b", DP.Aout, done);
         $dumpfile ("gcd.vcd");
         $dumpvars (0, GCD_test);
     end
